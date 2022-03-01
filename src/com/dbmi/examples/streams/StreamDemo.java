@@ -8,28 +8,31 @@ public class StreamDemo {
     List<String> guitarMakers;
 
     public StreamDemo() {
-        guitarMakers = asList("Fender","Gibson", "PRS","Ibanez", "Takemine","Yamaha","","Wallace Detroit","Martin"); // EMPTLY STRING INTENTIONAL
+        guitarMakers = asList("Fender", "Gibson", "PRS", "Ibanez", "", "Takemine", "Yamaha", "", "Wallace Detroit", "Martin"); // EMPTLY STRINGS INTENTIONAL
         System.out.println("CONSTRUCTED: ");
     } // CONSTRUCTOR()
 
-    public long printList() {
+    // RETURN A COUNT OF ENTRIES IN THE LIST
+    public long getCount() {
         return guitarMakers.stream()
                 .count();  // EAGER
-    } // PRINTLIST()
+    } // GETCOUNT()
 
-    public long printList2() {
+    // USE A FILTER TO RETURN A LIST WITHOUT EMPTY ENTRIES
+    public List<String> trimList() {
         return guitarMakers.stream()
-                .filter(maker -> { // ALWAYS RETURNS BOOLEAN??
-                    System.out.println(maker.toUpperCase());  // PRINTS EVERY STRING IN THE LIST: DON'T DO THIS IN REAL CODE
-                    return maker.length() > 0;
-                })
-                .count();
-    } // PRINTLIST2()
+                .filter(maker -> maker.length() > 0).toList();
+    } // TRIMLIST()
 
     public static void main(String[] args) {
         StreamDemo myDemo = new StreamDemo();
-        System.out.println("Count of all makers: " + myDemo.printList());
-        System.out.println("Count of non-empty : " + myDemo.printList2());
+        System.out.println("Count of list entries     : " + myDemo.getCount());
+        List<String> myList = myDemo.trimList();
+        System.out.println("Count of non-empty entries: " + myList.stream().count());
+        myList.forEach(System.out::println);  // UNFORMATTED OUTPUT
+        // GENERATE FORMATTED OUTPUT
+        System.out.println("\n\nLIST OF GUITAR MAKERS: ");
+        myList.forEach(maker -> System.out.println("   " + maker));
     } // MAIN(STRING[])
 
 } // CLASS
