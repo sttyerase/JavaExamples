@@ -6,5 +6,5 @@ public class J15SealedClassDemo {
         System.out.println(emptyList);
         LinkedList<String> oneElementList = new LinkedList.Cons<>("Test", new LinkedList.Nil<>());
         System.out.println(oneElementList);
-    }
+    } // MAIN(STRING[])
 } // CLASS
