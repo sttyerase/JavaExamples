@@ -11,7 +11,7 @@ package com.dbmi.examples.java8;
  * Default methods
  * Static methods
  * **/
-public interface TempI {
+public interface Java8Interface {
 
     void div(int a, int b);
 
@@ -29,7 +29,7 @@ public interface TempI {
     }
 }
 
-class Temp implements TempI {
+class Java8Demo implements Java8Interface {
 
     @Override
     public void div(int a, int b)
@@ -40,9 +40,9 @@ class Temp implements TempI {
 
     public static void main(String[] args)
     {
-        TempI in = new Temp();
+        Java8Interface in = new Java8Demo();
         in.div(8, 2);
         in.add(3, 1);
-        TempI.mul(4, 1);
+        Java8Interface.mul(4, 1);
     }
 }

@@ -17,7 +17,7 @@ package com.dbmi.examples.java9;
  * our intended methods implementations to users.These methods are only accessible within that interface only and
  * cannot be accessed or inherited from an interface to another interface or class.
  **/
-public interface TempI {
+public interface Java9Interface {
 
     void mul(int a, int b);
 
@@ -53,7 +53,7 @@ public interface TempI {
     }
 }
 
-class Temp implements TempI {
+class Java9Demo implements Java9Interface {
 
     @Override
     public void mul(int a, int b)
@@ -64,9 +64,9 @@ class Temp implements TempI {
 
     public static void main(String[] args)
     {
-        TempI in = new Temp();
+        Java9Interface in = new Java9Demo();
         in.mul(2, 3);
         in.add(6, 2);
-        TempI.mod(5, 3);
+        Java9Interface.mod(5, 3);
     }
 }
